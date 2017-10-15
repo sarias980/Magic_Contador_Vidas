@@ -27,6 +27,11 @@ public class MainActivityFragment extends Fragment {
     private TextView counter1;
     private TextView counter2;
 
+    private int life1;
+    private int life2;
+    private int poison1;
+    private int poison2;
+
     public MainActivityFragment() {
     }
 
@@ -48,8 +53,104 @@ public class MainActivityFragment extends Fragment {
         counter1 = (TextView) view.findViewById(R.id.counter1);
         counter2 = (TextView) view.findViewById(R.id.counter2);
 
+        lifeometotwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                life1--;
+                life2++;
+                updateViews();
+            }
+        });
 
+        lifetwotoone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                life2--;
+                life1++;
+                updateViews();
+            }
+        });
+
+        p1posionmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                poison1++;
+                updateViews();
+            }
+        });
+
+        p1posionless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                poison1--;
+                updateViews();
+            }
+        });
+
+        p2posionmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                poison2++;
+                updateViews();
+            }
+        });
+
+        p2posionless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                poison2--;
+                updateViews();
+            }
+        });
+
+        p1lifemore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                life1++;
+                updateViews();
+            }
+        });
+
+        p1lifeless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                life1--;
+                updateViews();
+            }
+        });
+
+        p2lifemore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                life2++;
+                updateViews();
+            }
+        });
+
+        p2lifeless.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                life2--;
+                updateViews();
+            }
+        });
+
+        reset();
 
         return view;
+    }
+
+    private void reset() {
+        life1 = 20;
+        life2 = 20;
+        poison1 = 0;
+        poison2 = 0;
+
+        updateViews();
+    }
+
+    private void updateViews() {
+        counter1.setText(String.format("%d/%d", life1, poison1));
+        counter2.setText(String.format("%d/%d", life2, poison2));
     }
 }
