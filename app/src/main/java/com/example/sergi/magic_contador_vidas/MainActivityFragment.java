@@ -1,8 +1,13 @@
 package com.example.sergi.magic_contador_vidas;
 
+import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -31,6 +36,7 @@ public class MainActivityFragment extends Fragment {
     private int life2;
     private int poison1;
     private int poison2;
+    private View view;
 
     public MainActivityFragment() {
     }
@@ -38,7 +44,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        view = inflater.inflate(R.layout.fragment_main, container, false);
 
         lifetwotoone = (ImageButton) view.findViewById(R.id.lifetwotoone);
         lifeometotwo = (ImageButton) view.findViewById(R.id.lifeometotwo);
@@ -53,91 +59,88 @@ public class MainActivityFragment extends Fragment {
         counter1 = (TextView) view.findViewById(R.id.counter1);
         counter2 = (TextView) view.findViewById(R.id.counter2);
 
-        lifeometotwo.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                life1--;
-                life2++;
+                switch (view.getId()){
+                    case R.id.lifeometotwo:
+                        life1--;
+                        life2++;
+                        break;
+                    case R.id.lifetwotoone:
+                        life1++;
+                        life2--;
+                        break;
+                    case R.id.p1posionmore:
+                        poison1++;
+                        break;
+                    case R.id.p2posionmore:
+                        poison2++;
+                        break;
+                    case R.id.p1posionless:
+                        poison1--;
+                        break;
+                    case R.id.p2posionless:
+                        poison2--;
+                        break;
+                    case R.id.p1lifemore:
+                        life1++;
+                        break;
+                    case R.id.p1lifeless:
+                        life1--;
+                        break;
+                    case R.id.p2lifemore:
+                        life2++;
+                        break;
+                    case R.id.p2lifeless:
+                        life2--;
+                        break;
+                }
                 updateViews();
             }
-        });
-
-        lifetwotoone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                life2--;
-                life1++;
-                updateViews();
-            }
-        });
-
-        p1posionmore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                poison1++;
-                updateViews();
-            }
-        });
-
-        p1posionless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                poison1--;
-                updateViews();
-            }
-        });
-
-        p2posionmore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                poison2++;
-                updateViews();
-            }
-        });
-
-        p2posionless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                poison2--;
-                updateViews();
-            }
-        });
-
-        p1lifemore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                life1++;
-                updateViews();
-            }
-        });
-
-        p1lifeless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                life1--;
-                updateViews();
-            }
-        });
-
-        p2lifemore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                life2++;
-                updateViews();
-            }
-        });
-
-        p2lifeless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                life2--;
-                updateViews();
-            }
-        });
+        };
 
         reset();
 
+        lifetwotoone.setOnClickListener(listener);
+        lifeometotwo.setOnClickListener(listener);
+        p1posionmore.setOnClickListener(listener);
+        p1posionless.setOnClickListener(listener);
+        p2posionmore.setOnClickListener(listener);
+        p2posionless.setOnClickListener(listener);
+        p1lifemore.setOnClickListener(listener);
+        p2lifemore.setOnClickListener(listener);
+        p1lifeless.setOnClickListener(listener);
+        p2lifeless.setOnClickListener(listener);
+        counter1.setOnClickListener(listener);
+        counter2.setOnClickListener(listener);
+
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.reset){
+            reset();
+            Snackbar.make(view, "New Game", Snackbar.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(true);
     }
 
     private void reset() {

@@ -12,36 +12,40 @@
         android:layout_height="wrap_content"
         android:id="@+id/guideline"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.5"
+        tools:layout_editor_absoluteY="228dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
+        android:id="@+id/lifetwotoone"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:tint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
+        app:srcCompat="@drawable/ic_arrow_upward_black_24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="match_parent"
+        android:id="@+id/lifeometotwo"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
         android:tint="@android:color/holo_red_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:srcCompat="@drawable/ic_arrow_downward_black_24dp" />
+        app:layout_constraintTop_toBottomOf="@+id/lifetwotoone"
+        app:srcCompat="@drawable/ic_arrow_downward_black_24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/p1posionmore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -49,32 +53,35 @@
         android:text="P+"
         android:textColor="@android:color/holo_green_dark"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/p1posionless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginRight="-27dp"
+        android:layout_marginTop="-4dp"
         android:text="P-"
         android:textColor="@android:color/holo_green_dark"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/p2posionmore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="27dp"
         android:text="P+"
         android:textColor="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/p2posionless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -82,6 +89,98 @@
         android:text="P-"
         android:textColor="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp" />
+
+    <ImageButton
+        android:id="@+id/p1lifemore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@+id/lifetwotoone"
+        app:layout_constraintLeft_toLeftOf="@+id/p1posionmore"
+        app:layout_constraintRight_toRightOf="@+id/p1posionmore"
+        app:layout_constraintTop_toBottomOf="@+id/p1posionmore"
+        app:srcCompat="@drawable/ic_favorite_black_24dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/p2lifemore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@+id/p2posionmore"
+        app:layout_constraintLeft_toLeftOf="@+id/p1posionmore"
+        app:layout_constraintRight_toRightOf="@+id/p1posionmore"
+        app:layout_constraintTop_toBottomOf="@+id/lifeometotwo"
+        app:srcCompat="@drawable/ic_favorite_black_24dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/p1lifeless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@+id/lifetwotoone"
+        app:layout_constraintLeft_toLeftOf="@+id/p1posionless"
+        app:layout_constraintRight_toRightOf="@+id/p1posionless"
+        app:layout_constraintTop_toBottomOf="@+id/p1posionless"
+        app:srcCompat="@drawable/ic_favorite_border_black_24dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/p2lifeless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@+id/p2posionless"
+        app:layout_constraintLeft_toLeftOf="@+id/p1posionless"
+        app:layout_constraintRight_toRightOf="@+id/p1posionless"
+        app:layout_constraintTop_toBottomOf="@+id/lifeometotwo"
+        app:srcCompat="@drawable/ic_favorite_border_black_24dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/counter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="20/0"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lifetwotoone"
+        app:layout_constraintLeft_toRightOf="@+id/p1lifemore"
+        app:layout_constraintRight_toLeftOf="@+id/p1lifeless"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/counter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="20/0"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/p2lifemore"
+        app:layout_constraintRight_toLeftOf="@+id/p2lifeless"
+        app:layout_constraintTop_toBottomOf="@+id/lifeometotwo"
+        app:layout_constraintVertical_bias="0.503" />
 
 </android.support.constraint.ConstraintLayout>
